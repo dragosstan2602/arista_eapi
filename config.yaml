@@ -1,0 +1,5 @@
+---
+defaults:
+  username: "admin"
+  password: "admin"
+  protocol: "https"

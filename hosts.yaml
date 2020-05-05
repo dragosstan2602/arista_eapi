@@ -1,0 +1,15 @@
+---
+vEOS-LSW01:
+  host: 192.168.0.21
+
+vEOS-LSW02:
+  host: 192.168.0.22
+
+vEOS-LSW03:
+  host: 192.168.0.23
+
+vEOS-SSW01:
+  host: 192.168.0.25
+
+vEOS-SSW02:
+  host: 192.168.0.26
