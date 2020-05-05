@@ -22,14 +22,31 @@ connection = pyeapi.connect(host=hosts['vEOS-LSW01']['host'],
                             password=password)
 
 node = pyeapi.client.Node(connection)
-
+########################################
 # pp(node.api('bgp').get())
+#
+# ADD VLANS TAKEN FROM Interface Vxlan1 CONFIG
+#
+# vlans = node.api('interfaces').getall()['Vxlan1']['vlans'].keys()
+# print(vlans)
+# for vlan in vlans:
+#     node.api('vlans').create(vlan)
+#     node.api('vlans').set_name(vlan, name=f"TEST_{vlan}")
+#
+# pp(node.api("vlans").getall())
+########################################
+#
+# REMOVE VLANS ADDED ABOVE
+#
+# pp(node.api("vlans").getall())
+# vlans = node.api("vlans").getall().keys()
+#
+# for vlan in vlans:
+#     if vlan is not "1":
+#         node.api("vlans").delete(vlan)
 
-
-vlans = node.api('interfaces').getall()['Vxlan1']['vlans'].keys()
-print(vlans)
-for vlan in vlans:
-    node.api('vlans').create(vlan)
-    node.api('vlans').set_name(vlan, name=f"TEST_{vlan}")
-
-pp(node.api("vlans").getall())
+# pp(node.api("vlans").getall())
+# for vlan in node.api('interfaces').get('Vxlan1')['vlans'].keys():
+#     node.api('interfaces').remove_vlan('Vxlan1', vlan)
+# #
+# pp(node.api('interfaces').get('Vxlan1'))
